@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ModifikasiMobil3 {
+public class ModifikasiMobil4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -11,7 +11,8 @@ public class ModifikasiMobil3 {
         int jarakTempuhperkm;
         int totalBiayaSewa;
         double diskon, totalBayar;
-        
+        String pesan;
+
         System.out.println("Masukan lama sewa");
         lamaSewa = sc.nextInt();
         System.out.println("Masukkan jarak tempuh");
@@ -25,28 +26,52 @@ public class ModifikasiMobil3 {
         totalBayar = totalBiayaSewa - diskon;
 
         sc.nextLine();
-        
+        System.out.print("Masukkan jenis bahan bakar (pertalite/pertamax) : ");
+        String jenisBahanBakar = sc.nextLine();
+
+        //Bahan bakar
+        if (jenisBahanBakar.equalsIgnoreCase ("pertalite ")) {
+            biayaBahanbakarperkm = 1000 * jarakTempuhperkm;
+            System.out.println("jumlah biaya BBM pertalite: " + biayaBahanbakarperkm);
+
+        } else if (jenisBahanBakar.equalsIgnoreCase ("pertamax ")) {
+            System.out.println("Jenis bahan bakar tidak tersedia");
+            biayaBahanbakarperkm = 1300 * jarakTempuhperkm;
+            System.out.println("jumlah biaya BBM pertamax: " + biayaBahanbakarperkm);
+       
+        } else {
+            biayaBahanbakarperkm = 0;
+            System.out.println("jenis bahan bakar tidak tersedia");
+
+        } 
+
         //Hitungan
         biayaMobilPerHari = 300000 * lamaSewa;
         biayaSupirPerHari = 200000 * lamaSewa;
         biayaBahanbakarperkm = biayaBahanbakarperkm * jarakTempuhperkm;
         totalBiayaSewa = biayaMobilPerHari * biayaSupirPerHari * biayaBahanbakarperkm;
 
-        System.out.println("masukkan lama sewa");
-        String pesan;
-        
-        //Batas lama sewa
+        //Diskon
+        if (totalBiayaSewa > 2000000) {
+            diskon = 0.5 * totalBiayaSewa;
+            System.out.println("total biaya sewa : " + diskon);
+        } else {
+            diskon = 0.0 * totalBiayaSewa;
+            System.out.println("total biaya : " + diskon);
+            
+        }
+       totalBayar = totalBiayaSewa - diskon;
+
+       //Batas lama sewa
         if (lamaSewa > 30) {
-            pesan = "Lama sewa tidak boleh lebih dari 30 hari";
+            pesan = ("lama sewa tidak boleh lebih dari 30 hari");
             System.out.println("pesan");
             sc.close();
             return;
         } else {
-            pesan = "lama sewa valid";
             System.out.println("pesan");
         }
        
-
         System.out.println("biaya mobil: " + biayaMobilPerHari);
         System.out.println("biaya supir: " + biayaSupirPerHari);
         System.out.println("biaya bahan bakar: " + 1000);
@@ -56,10 +81,4 @@ public class ModifikasiMobil3 {
         sc.close();
     }
 }
-
-
-
-
-
-    
 
