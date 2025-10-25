@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ModifikasiMobil {
+public class ModifikasiMobil2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -25,24 +25,24 @@ public class ModifikasiMobil {
         totalBayar = totalBiayaSewa - diskon;
 
         sc.nextLine();
-        System.out.print("Masukkan jenis bahan bakar (pertalite/pertamax) : ");
-        String jenisBahanBakar = sc.nextLine();
+        
+        //Hitungan
+        biayaMobilPerHari = 300000 * lamaSewa;
+        biayaSupirPerHari = 200000 * lamaSewa;
+        biayaBahanbakarperkm = biayaBahanbakarperkm * jarakTempuhperkm;
+        totalBiayaSewa = biayaMobilPerHari * biayaSupirPerHari * biayaBahanbakarperkm;
 
-        if (jenisBahanBakar.equalsIgnoreCase ("pertalite ")) {
-            biayaBahanbakarperkm = 1000 * jarakTempuhperkm;
-            System.out.println("jumlah biaya BBM pertalite: " + biayaBahanbakarperkm);
-
-        } else if (jenisBahanBakar.equalsIgnoreCase ("pertamax ")) {
-            System.out.println("Jenis bahan bakar tidak tersedia");
-            biayaBahanbakarperkm = 1300 * jarakTempuhperkm;
-            System.out.println("jumlah biaya BBM pertamax: " + biayaBahanbakarperkm);
-       
+        //Diskon
+        if (totalBiayaSewa > 2000000) {
+            diskon = 0.5 * totalBiayaSewa;
+            System.out.println("total biaya sewa : " + diskon);
         } else {
-            biayaBahanbakarperkm = 0;
-            System.out.println("jenis bahan bakar tidak tersedia");
+            diskon = 0.0 * totalBiayaSewa;
+            System.out.println("total biaya : " + diskon);
+            
+        }
+       totalBayar = totalBiayaSewa - diskon;
 
-        } 
-       
         System.out.println("biaya mobil: " + biayaMobilPerHari);
         System.out.println("biaya supir: " + biayaSupirPerHari);
         System.out.println("biaya bahan bakar: " + 1000);
@@ -52,4 +52,6 @@ public class ModifikasiMobil {
         sc.close();
     }
 }
+
+
 
