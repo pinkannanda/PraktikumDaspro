@@ -18,7 +18,7 @@ public class ModifikasiListrik {
         biayaPemakaian = biayaListrikPerbulan * +tarifListrikKwh;
         totalBiayaListrik = biayaPemakaian + ppn;
 
-        // Opsi daya
+        // Opsi daya 
         System.out.println("masukkan opsi daya: 900 / 1300 / 2200 / 3500 / 5500)");
         String opsiDaya = sc.nextLine();
 
