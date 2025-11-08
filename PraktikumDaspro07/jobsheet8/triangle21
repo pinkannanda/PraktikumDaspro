@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Triangle21 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Masukkan nilai n = ");
+        int n = sc.nextInt();
+
+        int i = 1; // mulai dari 1 biar baris pertama ada 1 bintang
+        while (i <= n) {
+            int j = 0;
+            while (j < i) {
+                System.out.print("*");
+                j++;
+            }
+            System.out.println(); // pindah ke baris baru
+            i++; // naik ke baris berikutnya
+        }
+
+        sc.close();
+    }
+}
