@@ -1,11 +1,8 @@
 package Jobsheet09;
-
-import java.util.Scanner;
-
-public class ArrayRataNilai21 {
+public class ModifikasiArrayNilai21 {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        java.util.Scanner sc = new java.util.Scanner(System.in);
 
         System.out.print("Masukkan jumlah mahasiswa : ");
         int jumlah = sc.nextInt();
@@ -14,17 +11,14 @@ public class ArrayRataNilai21 {
         int tertinggi = 0;
         int terendah = 100;
 
-        // Input nilai
         for (int i = 0; i < jumlah; i++) {
             System.out.print("Masukkan nilai mahasiswa ke-" + (i + 1) + ": ");
             nilaiMhs[i] = sc.nextInt();
 
-            // Tentukan nilai tertinggi
             if (nilaiMhs[i] > tertinggi) {
                 tertinggi = nilaiMhs[i];
             }
 
-            // Tentukan nilai terendah
             if (nilaiMhs[i] < terendah) {
                 terendah = nilaiMhs[i];
             }
@@ -34,5 +28,3 @@ public class ArrayRataNilai21 {
         System.out.println("Nilai terendah = " + terendah);
     }
 }
-
-
